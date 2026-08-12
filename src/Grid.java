@@ -27,8 +27,9 @@ public class Grid {
     void printGrid(){
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                System.out.println(cellList[i][j]);
+                System.out.print(cellList[i][j]);
             }
+            System.out.println();
         }
     }
 
@@ -49,4 +50,5 @@ public class Grid {
     public void setWidth(int width) {
         this.width = width;
     }
+    public void setMeasurements(int width, int height){setWidth(width); setHeight(height);}
 }

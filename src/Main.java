@@ -4,11 +4,15 @@ void main() {
 
     System.out.println("Player is at: " + player.getPositionX() + ", " + player.getPositionY());
 
-    player.setPositionX(3);
-    player.setPositionY(3);
+    player.setPositionX(6);
+    player.setPositionY(2);
 
     System.out.println("Player is at: " + player.getPositionX() + ", " + player.getPositionY());
 
     grid.fillGrid();
+    grid.printGrid();
+
+    grid.setMeasurements(2, 2);
+
     grid.printGrid();
 }
