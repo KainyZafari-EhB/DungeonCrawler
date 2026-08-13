@@ -1,6 +1,6 @@
 public class Player {
-    int positionX;
-    int positionY;
+    private int positionX;
+    private int positionY;
 
 
 // Getters
@@ -20,6 +20,8 @@ public class Player {
     public void setPositionY(int positionY) {
         this.positionY = positionY;
     }
+
+    public void setPositions(int positionX, int positionY){this.positionX = positionX; this.positionY = positionY;}
 
 // Constructors
 

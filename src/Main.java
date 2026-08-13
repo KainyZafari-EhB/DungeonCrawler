@@ -1,18 +1,18 @@
 void main() {
+    boolean running;
+    Scanner scanner = new Scanner(System.in);
     Player player = new Player(5, 6);
-    Grid grid = new Grid(3, 3);
+    Grid grid = new Grid(12, 12, player);
 
-    System.out.println("Player is at: " + player.getPositionX() + ", " + player.getPositionY());
-
-    player.setPositionX(6);
-    player.setPositionY(2);
-
-    System.out.println("Player is at: " + player.getPositionX() + ", " + player.getPositionY());
-
-    grid.fillGrid();
+    grid.initializeGrid();
+    grid.randomStart();
     grid.printGrid();
 
-    grid.setMeasurements(2, 2);
+    while(true){
+        System.out.println();
+        System.out.println("Welcome - Press WASD to move");
 
-    grid.printGrid();
+        String input = scanner.next();
+        grid.handleInput(input);
+    }
 }
