@@ -54,23 +54,32 @@ public class Grid {
         cellList[valueX][valueY] = 'X';
     }
 
-    //TODO: handle bounds checking;
     void handleInput(String direction){
         int playerY = player.getPositionY();
         int playerX = player.getPositionX();
 
+        int newX = playerX;
+        int newY = playerY;
+
             if (Objects.equals(direction, "w") || Objects.equals(direction, "W")) {
-                player.setPositionX(playerX - 1);
+                newX = playerX - 1;
             } else if (Objects.equals(direction, "s") || Objects.equals(direction, "S")) {
-                player.setPositionX(playerX + 1);
+                newX = playerX + 1;
             } else if (Objects.equals(direction, "a") || Objects.equals(direction, "A")) {
-                player.setPositionY(playerY - 1);
+                newY = playerY - 1;
             } else if (Objects.equals(direction, "d") || Objects.equals(direction, "D")) {
-                player.setPositionY(playerY + 1);
+                newY = playerY + 1;
             }
             else if (Objects.equals(direction, "exit") || Objects.equals(direction, "EXIT")) {
                 System.exit(0);
             }
+            if (newX >= 0 && newX < height && newY >= 0 && newY < width){
+                player.setPositions(newX, newY);
+            }
+            else {
+                System.out.println("There is a wall in that direction.");
+            }
+
         initializeGrid();
         drawPlayer();
         printGrid();
