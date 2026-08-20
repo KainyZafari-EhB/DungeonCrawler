@@ -1,7 +1,12 @@
 import java.util.Random;
 
-//TODO: Implement a generate enemies function to mass spawn enemies, Give enemies health, Make a damage to player function, generate enemies on the grid;
-public class Enemy {
+//TODO:
+// Implement a generate enemies function to mass spawn enemies,
+// Give enemies health,
+// Make a damage to player function,
+// generate enemies on the grid;
+
+public class Enemy extends Entity{
 
     int positionX;
     int positionY;

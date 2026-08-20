@@ -1,34 +1,6 @@
-public class Player {
-    private int positionX;
-    private int positionY;
+public class Player extends Entity {
 
-
-// Getters
-    public int getPositionX() {
-        return positionX;
-    }
-
-    public int getPositionY() {
-        return positionY;
-    }
-
-// Setters
-    public void setPositionX(int positionX) {
-        this.positionX = positionX;
-    }
-
-    public void setPositionY(int positionY) {
-        this.positionY = positionY;
-    }
-
-    public void setPositions(int positionX, int positionY){this.positionX = positionX; this.positionY = positionY;}
-
-// Constructors
-
-    public Player(){
-        this(0, 0);
-    }
-
+// Constructor
     public Player(int positionX, int positionY){
         this.positionX = positionX;
         this.positionY = positionY;

@@ -1,4 +1,6 @@
-void main() throws InterruptedException {
+import java.util.Scanner;
+
+void main() {
     boolean running;
     Scanner scanner = new Scanner(System.in);
     Player player = new Player(5, 6);
