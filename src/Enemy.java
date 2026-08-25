@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 //TODO:
@@ -7,52 +8,40 @@ import java.util.Random;
 // generate enemies on the grid;
 
 public class Enemy extends Entity{
-
-    int positionX;
-    int positionY;
-
     Grid grid;
-    char[][] cellList = grid.cellList;
+
+    static int enemyCounter;
+    static ArrayList<Enemy> enemies = new ArrayList<>();
 
     public Enemy(int positionX, int positionY, Grid grid){
-        this.positionX = positionX;
-        this.positionY = positionY;
+        setPositions(positionX, positionY);
         this.grid = grid;
+        enemyCounter++;
+        enemies.add(this);
     }
 
-    ///draws an enemy at a random coordinate;
-    public void drawEnemy(){
-        Random randomNumbers = new Random();
+    /// Spawns a given amount of enemies on the grid at random positions.
+    void spawnEnemies(int amountOfEnemies){
+        Random random = new Random();
+        for (int i = 0; i < amountOfEnemies; i++){
+            int x = random.nextInt(0, grid.getWidth());
+            int y = random.nextInt(0, grid.getHeight());
+            Enemy enemy = new Enemy(x, y, grid);
+        }
+        drawEnemies();
+    }
 
-        int randomX = randomNumbers.nextInt(0, grid.getWidth());
-        int randomY = randomNumbers.nextInt(0, grid.getHeight());
-        setPositionX(randomX);
-        setPositionY(randomY);
-
-        if (cellList != null){
-            cellList[randomX][randomY] = 'O';
+    //TODO: Make the enemies draw according to how much there are in the game.
+    ///Draws enemies based on how many items in enemies list.
+    void drawEnemies(){
+        for (Enemy enemy : enemies) {
+            enemy.drawEntity(grid.cellList);
         }
     }
 
-    public int getPositionX() {
-        return positionX;
-    }
-
-    public void setPositionX(int positionX) {
-        this.positionX = positionX;
-    }
-
-    public int getPositionY() {
-        return positionY;
-    }
-
-    public void setPositionY(int positionY) {
-        this.positionY = positionY;
-    }
-
-    /// set Coordinates of both X and Y for the enemy
-    public void setMeasurements(int positionX, int positionY) {
-        setPositionX(positionX);
-        setPositionY(positionY);
+    //TODO: make a detection system for enemies to discover the player and attack.
+    ///Attacks player - Takes a player parameter.
+    void attackPlayer(Player player){
+        player.decreaseHealth(10);
     }
 }

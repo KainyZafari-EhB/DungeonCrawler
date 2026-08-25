@@ -41,18 +41,20 @@ public class Grid {
         int randomWidth = random.nextInt(0, width);
         int randomHeight = random.nextInt(0, height);
 
-        drawPlayer(randomWidth, randomHeight);
+        player.setPositions(randomWidth, randomHeight);
+
+        player.drawEntity(cellList);
     }
 
-    void drawPlayer(){
-        int playerX = player.getPositionX();
-        int playerY = player.getPositionY();
-        cellList[playerX][playerY] = 'X';
-    }
-    void drawPlayer(int valueX, int valueY){
-        player.setPositions(valueX, valueY);
-        cellList[valueX][valueY] = 'X';
-    }
+//    void drawPlayer(){
+//        int playerX = player.getPositionX();
+//        int playerY = player.getPositionY();
+//        cellList[playerX][playerY] = 'X';
+//    }
+//    void drawPlayer(int valueX, int valueY){
+//        player.setPositions(valueX, valueY);
+//        cellList[valueX][valueY] = 'X';
+//    }
 
     void handleInput(String direction){
         int playerY = player.getPositionY();
@@ -81,7 +83,7 @@ public class Grid {
             }
 
         initializeGrid();
-        drawPlayer();
+        player.drawEntity(cellList);
         printGrid();
     }
 

@@ -1,11 +1,18 @@
-public class Entity {
+public abstract class Entity {
 
     protected int positionX;
     protected int positionY;
 
-    void drawEntity(char[][] cellList, char symbol){
+    private int health;
+
+    void drawEntity(char[][] cellList){
         if (cellList != null){
-            cellList[positionX][positionY] = symbol;
+            if (this instanceof Player) {
+                cellList[this.positionX][this.positionY] = 'P';
+            }
+            if (this instanceof Enemy) {
+                cellList[this.positionX][this.positionY] = 'X';
+            }
         }
     }
 
@@ -25,8 +32,19 @@ public class Entity {
         this.positionY = positionY;
     }
 
+    ///Sets positions for entity - takes X and Y position parameter.
     void setPositions(int positionX, int positionY){
         this.positionX = positionX;
         this.positionY = positionY;
+    }
+    //Health related getters and setters
+    int getHealth(){return health;}
+    void setHealth(int amount){health = amount;}
+
+    void decreaseHealth(int amount){
+        setHealth(amount);
+    }
+    void attack(Entity target){
+        target.decreaseHealth(10);
     }
 }

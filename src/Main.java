@@ -5,12 +5,15 @@ void main() {
     Scanner scanner = new Scanner(System.in);
     Player player = new Player(5, 6);
     Grid grid = new Grid(12, 12, player);
+    Enemy enemy = new Enemy(3, 4, grid);
 
     grid.initializeGrid();
     grid.randomStart();
-    grid.printGrid();
+    enemy.spawnEnemies(5);
+
 
     while(true){
+        grid.printGrid();
         System.out.println();
         System.out.println("Welcome - Press WASD to move");
 
