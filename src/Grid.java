@@ -17,6 +17,7 @@ public class Grid {
         this.player = player;
     }
 
+    ///Initializes the grid by making all the symbols '.'
     void initializeGrid(){
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
@@ -25,7 +26,11 @@ public class Grid {
         }
     }
 
+    ///Prints the entire grid.
      void printGrid(){
+        initializeGrid();
+        player.drawEntity(cellList);
+        Enemy.drawEnemies();
         System.out.println();
         System.out.println("---- Grid ----");
         for (int i = 0; i < width; i++) {
@@ -36,6 +41,7 @@ public class Grid {
         }
     }
 
+    ///Player starts at a random X and Y level.
      void randomStart(){
         Random random = new Random();
         int randomWidth = random.nextInt(0, width);
@@ -46,22 +52,15 @@ public class Grid {
         player.drawEntity(cellList);
     }
 
-//    void drawPlayer(){
-//        int playerX = player.getPositionX();
-//        int playerY = player.getPositionY();
-//        cellList[playerX][playerY] = 'X';
-//    }
-//    void drawPlayer(int valueX, int valueY){
-//        player.setPositions(valueX, valueY);
-//        cellList[valueX][valueY] = 'X';
-//    }
-
+    ///Handles input from user to player movement.
     void handleInput(String direction){
         int playerY = player.getPositionY();
         int playerX = player.getPositionX();
 
         int newX = playerX;
         int newY = playerY;
+
+        printGrid();
 
             if (Objects.equals(direction, "w") || Objects.equals(direction, "W")) {
                 newX = playerX - 1;
@@ -73,6 +72,7 @@ public class Grid {
                 newY = playerY + 1;
             }
             else if (Objects.equals(direction, "exit") || Objects.equals(direction, "EXIT")) {
+                System.out.println("Goodbye.");
                 System.exit(0);
             }
             if (newX >= 0 && newX < height && newY >= 0 && newY < width){
@@ -81,10 +81,6 @@ public class Grid {
             else {
                 System.out.println("There is a wall in that direction.");
             }
-
-        initializeGrid();
-        player.drawEntity(cellList);
-        printGrid();
     }
 
 

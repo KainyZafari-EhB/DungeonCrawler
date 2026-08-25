@@ -11,11 +11,14 @@ void main() {
     grid.randomStart();
     enemy.spawnEnemies(5);
 
+    enemy.attack(player);
 
+    grid.printGrid();
     while(true){
-        grid.printGrid();
         System.out.println();
         System.out.println("Welcome - Press WASD to move");
+        System.out.println("Player's position: " + player.getPositionX() + "|" + player.getPositionY());
+        System.out.println();
 
         String input = scanner.next();
         grid.handleInput(input);

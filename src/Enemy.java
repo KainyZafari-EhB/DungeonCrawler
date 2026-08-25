@@ -1,14 +1,9 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-//TODO:
-// Implement a generate enemies function to mass spawn enemies,
-// Give enemies health,
-// Make a damage to player function,
-// generate enemies on the grid;
-
+//TODO: make a detection system for enemies to discover the player and attack.
 public class Enemy extends Entity{
-    Grid grid;
+    static Grid grid;
 
     static int enemyCounter;
     static ArrayList<Enemy> enemies = new ArrayList<>();
@@ -18,6 +13,7 @@ public class Enemy extends Entity{
         this.grid = grid;
         enemyCounter++;
         enemies.add(this);
+        setHealth(20);
     }
 
     /// Spawns a given amount of enemies on the grid at random positions.
@@ -32,15 +28,9 @@ public class Enemy extends Entity{
     }
 
     ///Draws enemies based on how many items in enemies list.
-    void drawEnemies(){
+    static void drawEnemies(){
         for (Enemy enemy : enemies) {
             enemy.drawEntity(grid.cellList);
         }
-    }
-
-    //TODO: make a detection system for enemies to discover the player and attack.
-    ///Attacks player - Takes a player parameter.
-    void attackPlayer(Player player){
-        player.decreaseHealth(10);
     }
 }
