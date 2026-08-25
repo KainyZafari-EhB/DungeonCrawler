@@ -31,7 +31,6 @@ public class Enemy extends Entity{
         drawEnemies();
     }
 
-    //TODO: Make the enemies draw according to how much there are in the game.
     ///Draws enemies based on how many items in enemies list.
     void drawEnemies(){
         for (Enemy enemy : enemies) {
