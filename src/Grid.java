@@ -2,10 +2,10 @@ import java.util.Objects;
 import java.util.Random;
 
 public class Grid {
-    int width;
-    int height;
+    private int width;
+    private int height;
 
-    char[][] cellList;
+    private char[][] cellList;
 
     Player player;
 
@@ -101,6 +101,12 @@ public class Grid {
     public void setWidth(int width) {
         this.width = width;
     }
+
+    ///Sets measurements for the grid
     public void setMeasurements(int width, int height){setWidth(width); setHeight(height);}
+
+    public char[][] getCellList() {
+        return cellList;
+    }
 }
 

@@ -46,6 +46,9 @@ public abstract class Entity {
     void decreaseHealth(){
         setHealth(health -= 10);
     }
+    void decreaseHealth(Item item){
+        setHealth(health -= item.getDamage());
+    }
     void attack(Entity target){
         target.decreaseHealth();
     }

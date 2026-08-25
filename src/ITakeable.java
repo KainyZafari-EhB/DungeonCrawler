@@ -1,3 +1,3 @@
 public interface ITakeable {
-    void Take();
+    void Take(Player player);
 }

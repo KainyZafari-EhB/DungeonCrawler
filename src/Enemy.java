@@ -30,7 +30,7 @@ public class Enemy extends Entity{
     ///Draws enemies based on how many items in enemies list.
     static void drawEnemies(){
         for (Enemy enemy : enemies) {
-            enemy.drawEntity(grid.cellList);
+            enemy.drawEntity(grid.getCellList());
         }
     }
 }

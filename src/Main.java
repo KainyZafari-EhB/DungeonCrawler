@@ -18,6 +18,7 @@ void main() {
         System.out.println();
         System.out.println("Welcome - Press WASD to move");
         System.out.println("Player's position: " + player.getPositionX() + "|" + player.getPositionY());
+        System.out.println("P = Player, X = Enemy, $ = Item");
         System.out.println();
 
         String input = scanner.next();
