@@ -41,10 +41,12 @@ public abstract class Entity {
     int getHealth(){return health;}
     void setHealth(int amount){health = amount;}
 
-    void decreaseHealth(int amount){
-        setHealth(amount);
+    //Damage related methods
+    //TODO: make this method more flexible for when items are added.
+    void decreaseHealth(){
+        setHealth(health -= 10);
     }
     void attack(Entity target){
-        target.decreaseHealth(10);
+        target.decreaseHealth();
     }
 }
