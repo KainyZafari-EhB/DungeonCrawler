@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-//TODO: have items have special effects,
+//TODO: have items have special effects and have the effect show in battle,
 
 public class Item implements ITakeable{
     private int positionX;
@@ -12,11 +12,24 @@ public class Item implements ITakeable{
     private final int damage;
 
     static ArrayList<Item> itemsList = new ArrayList<>();
+    private final effect itemEffect;
+
+    enum effect{
+        BLEED, POISON, FIRE, ICE
+    }
 
     public Item(String name, int damage){
         this.name = name;
         this.damage = damage;
         itemsList.add(this);
+        this.itemEffect = null;
+    }
+
+    public Item(String name, int damage, effect itemEffect){
+        this.name = name;
+        this.damage = damage;
+        itemsList.add(this);
+        this.itemEffect = itemEffect;
     }
 
     @Override

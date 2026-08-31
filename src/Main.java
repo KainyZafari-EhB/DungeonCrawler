@@ -10,13 +10,14 @@ void main() {
     Item dagger = new Item("Dagger", 3);
     Item shield = new Item("Shield", 1);
 
-
     Grid grid = new Grid(12, 12, player, sword);
     Enemy enemy = new Enemy(3, 4, grid);
 
     grid.initializeGrid();
     grid.randomStart();
+
     enemy.spawnEnemies(5);
+    enemy.checkForPlayer(player);
 
     grid.printGrid();
 

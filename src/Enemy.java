@@ -33,4 +33,11 @@ public class Enemy extends Entity{
             enemy.drawEntity(grid.getCellList());
         }
     }
+
+    public void checkForPlayer(Player player){
+        if (this.getPositionX() == player.getPositionX() && this.getPositionY() == player.getPositionY()){
+            attack(player);
+            System.out.println("Enemy attacked you! Your health is now: " + player.getHealth());
+        }
+    }
 }

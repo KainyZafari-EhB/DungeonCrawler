@@ -1,6 +1,8 @@
 import java.util.Objects;
 import java.util.Random;
 
+//TODO: fix input system lagging behind input.
+
 public class Grid {
     private int width;
     private int height;
