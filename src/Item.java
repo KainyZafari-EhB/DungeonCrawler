@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 
-//TODO:
-// add damage to player's damage,
-// have items have special effects,
+//TODO: have items have special effects,
 
 public class Item implements ITakeable{
     private int positionX;
