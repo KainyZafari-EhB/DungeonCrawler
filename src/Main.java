@@ -18,8 +18,6 @@ void main() {
     grid.randomStart();
     enemy.spawnEnemies(5);
 
-    enemy.attack(player);
-
     grid.printGrid();
 
     while(true){
@@ -27,7 +25,7 @@ void main() {
         System.out.println();
         System.out.println("Welcome - Press WASD to move");
         System.out.println("Player's position: " + player.getPositionX() + "|" + player.getPositionY());
-        System.out.println("Player's health: " + player.getHealth());
+        System.out.println("Player's health: " + player.getHealth() + " | Player's damage: " + player.getDamage());
         System.out.println("P = Player, X = Enemy, $ = Item");
         System.out.println();
 

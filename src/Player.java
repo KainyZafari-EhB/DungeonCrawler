@@ -5,10 +5,12 @@ public class Player extends Entity {
     ArrayList<Item> items;
     private int damage = 5;
 
+
 // Constructor
     public Player(int positionX, int positionY){
         setPositions(positionX, positionY);
         items = new ArrayList<>();
+        setHealth(100);
     }
 
     public void pickUpItem(Item item){

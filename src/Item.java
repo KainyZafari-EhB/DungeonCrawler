@@ -2,9 +2,7 @@ import java.util.ArrayList;
 
 //TODO:
 // add damage to player's damage,
-// choose 1 item from list to be displayed in the grid,
 // have items have special effects,
-// draw item in the grid.
 
 public class Item implements ITakeable{
     private int positionX;
