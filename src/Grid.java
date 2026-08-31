@@ -8,13 +8,15 @@ public class Grid {
     private char[][] cellList;
 
     Player player;
+    Item item;
 
 
-    public Grid(int width, int height,Player player){
+    public Grid(int width, int height,Player player, Item item){
         cellList = new char[width][height];
         this.width = width;
         this.height = height;
         this.player = player;
+        this.item = item;
     }
 
     ///Initializes the grid by making all the symbols '.'
@@ -31,6 +33,7 @@ public class Grid {
         initializeGrid();
         player.drawEntity(cellList);
         Enemy.drawEnemies();
+        item.drawItem(cellList, player);
         System.out.println();
         System.out.println("---- Grid ----");
         for (int i = 0; i < width; i++) {

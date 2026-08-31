@@ -4,7 +4,14 @@ void main() {
     boolean running;
     Scanner scanner = new Scanner(System.in);
     Player player = new Player(5, 6);
-    Grid grid = new Grid(12, 12, player);
+
+    Item sword = new Item("Sword", 10);
+    Item bow = new Item("Bow", 5);
+    Item dagger = new Item("Dagger", 3);
+    Item shield = new Item("Shield", 1);
+
+
+    Grid grid = new Grid(12, 12, player, sword);
     Enemy enemy = new Enemy(3, 4, grid);
 
     grid.initializeGrid();
@@ -14,10 +21,13 @@ void main() {
     enemy.attack(player);
 
     grid.printGrid();
+
     while(true){
+        player.checkForItem(sword,grid);
         System.out.println();
         System.out.println("Welcome - Press WASD to move");
         System.out.println("Player's position: " + player.getPositionX() + "|" + player.getPositionY());
+        System.out.println("Player's health: " + player.getHealth());
         System.out.println("P = Player, X = Enemy, $ = Item");
         System.out.println();
 
