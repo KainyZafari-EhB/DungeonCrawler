@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+    //TODO: win condition, lose condition, enemy AI and escape system.
 void main() {
     boolean running;
     Scanner scanner = new Scanner(System.in);
@@ -12,6 +13,11 @@ void main() {
 
     Grid grid = new Grid(12, 12, player, sword);
     Enemy enemy = new Enemy(3, 4, grid);
+
+    sword.chooseRandomItemPosition(grid);
+    bow.chooseRandomItemPosition(grid);
+    dagger.chooseRandomItemPosition(grid);
+    shield.chooseRandomItemPosition(grid);
 
     grid.initializeGrid();
     grid.randomStart();
