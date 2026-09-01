@@ -12,10 +12,21 @@ public class Item implements ITakeable{
     private final int damage;
 
     static ArrayList<Item> itemsList = new ArrayList<>();
-    private final effect itemEffect;
+    private final Effect itemEffect;
 
-    enum effect{
+    enum Effect{
         BLEED, POISON, FIRE, ICE
+    }
+
+    public void applyEffect(Effect effect){
+        if (itemEffect != null){
+            switch (itemEffect){
+                case BLEED -> System.out.println("You are bleeding!");
+                case POISON -> System.out.println("You are poisoned!");
+                case FIRE -> System.out.println("You are on fire!");
+                case ICE -> System.out.println("You are frozen!");
+            }
+        }
     }
 
     public Item(String name, int damage){
@@ -25,7 +36,7 @@ public class Item implements ITakeable{
         this.itemEffect = null;
     }
 
-    public Item(String name, int damage, effect itemEffect){
+    public Item(String name, int damage, Effect itemEffect){
         this.name = name;
         this.damage = damage;
         itemsList.add(this);
@@ -81,5 +92,9 @@ public class Item implements ITakeable{
 
     private void setPositionY(int positionY) {
         this.positionY = positionY;
+    }
+
+    public Effect getItemEffect() {
+        return itemEffect;
     }
 }

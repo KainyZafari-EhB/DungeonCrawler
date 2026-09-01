@@ -80,6 +80,22 @@ public class Grid {
                 System.out.println("Goodbye.");
                 System.exit(0);
             }
+            else if (Objects.equals(direction, "attack") || Objects.equals(direction, "ATTACK")){
+                for (Enemy enemy : Enemy.enemies) {
+                    if (enemy.getPositionX() == player.getPositionX() && enemy.getPositionY() == player.getPositionY()) {
+                        player.attack(enemy);
+                        System.out.println("You attacked the enemy! Enemy's health is now: " + enemy.getHealth());
+                        if (enemy.getHealth() <= 0) {
+                            System.out.println("You killed the enemy!");
+                            Enemy.enemies.remove(enemy);
+                            break;
+                        }
+                    }
+                }
+            }
+            else {
+                System.out.println("Invalid input. Please use WASD to move or type 'exit' to quit.");
+            }
             if (newX >= 0 && newX < height && newY >= 0 && newY < width){
                 player.setPositions(newX, newY);
             }

@@ -5,7 +5,7 @@ void main() {
     Scanner scanner = new Scanner(System.in);
     Player player = new Player(5, 6);
 
-    Item sword = new Item("Sword", 10);
+    Item sword = new Item("Sword", 10, Item.Effect.FIRE);
     Item bow = new Item("Bow", 5);
     Item dagger = new Item("Dagger", 3);
     Item shield = new Item("Shield", 1);

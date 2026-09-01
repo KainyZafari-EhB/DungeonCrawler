@@ -50,6 +50,10 @@ public abstract class Entity {
         setHealth(health -= item.getDamage());
     }
     void attack(Entity target){
+        if (target instanceof Player){
+            ((Player) target).checkForEffect();
+            target.decreaseHealth();
+        }
         target.decreaseHealth();
     }
 }

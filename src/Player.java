@@ -24,6 +24,14 @@ public class Player extends Entity {
         }
     }
 
+    public void checkForEffect(){
+        for (Item item : items) {
+            if (item != null) {
+                item.applyEffect(item.getItemEffect());
+            }
+        }
+    }
+
     public int getDamage() {
         return damage;
     }
