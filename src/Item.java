@@ -14,7 +14,7 @@ public class Item implements ITakeable{
     static ArrayList<Item> itemsList = new ArrayList<>();
     private final Effect itemEffect;
 
-    enum Effect{
+    public enum Effect{
         BLEED, POISON, FIRE, ICE
     }
 

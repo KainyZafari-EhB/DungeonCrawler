@@ -1,9 +1,13 @@
+import java.util.ArrayList;
+
 public abstract class Entity {
 
     protected int positionX;
     protected int positionY;
 
     private int health;
+
+    ArrayList<Item> items;
 
     void drawEntity(char[][] cellList){
         if (cellList != null){
@@ -51,9 +55,16 @@ public abstract class Entity {
     }
     void attack(Entity target){
         if (target instanceof Player){
-            ((Player) target).checkForEffect();
             target.decreaseHealth();
         }
+        checkForEffect();
         target.decreaseHealth();
+    }
+    public void checkForEffect(){
+        for (Item item : items) {
+            if (item != null) {
+                item.applyEffect(item.getItemEffect());
+            }
+        }
     }
 }

@@ -25,6 +25,10 @@ void main() {
     enemy.spawnEnemies(5);
     enemy.checkForPlayer(player);
 
+    //Debug for whats happening in effects
+    player.items.add(sword);
+    player.attack(enemy);
+
     grid.printGrid();
 
     while(true){

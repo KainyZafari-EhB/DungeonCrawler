@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Player extends Entity {
 
-    ArrayList<Item> items;
     private int damage = 5;
 
 
@@ -21,14 +20,6 @@ public class Player extends Entity {
         if (this.getPositionX() == item.getPositionX() && this.getPositionY() == item.getPositionY()){
             pickUpItem(item);
             grid.getCellList()[item.getPositionX()][item.getPositionY()] = '.';
-        }
-    }
-
-    public void checkForEffect(){
-        for (Item item : items) {
-            if (item != null) {
-                item.applyEffect(item.getItemEffect());
-            }
         }
     }
 
